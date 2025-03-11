@@ -43,7 +43,7 @@ function App() {
   const panksomsiaTheme = {
     styles: {
       container: {
-        backgroundColor: 'white',
+        backgroundColor: '',
         fontFamily: '',
       },
       string: 'purple',
