@@ -1,0 +1,18 @@
+{
+  "id": "i18n-editor",
+  "require": {
+    "net": false,
+    "debug": true
+  },
+  "i18n": {
+    "title": {
+      "en": "A Localization Editor"
+    },
+    "summary": {
+      "en": "Add and edit localizations of UI strings"
+    },
+    "stub_content": {
+      "en": "Content goes here"
+    }
+  }
+}
