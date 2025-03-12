@@ -50,12 +50,24 @@ function App() {
     },
   }
 
+  const restrictEditFilter = ({ value }) => typeof value !== "string";
+  const restrictAddFilter = ({ value }) => value && ((typeof value !== "object") || Object.values(value).filter(o => typeof o !== "string").length > 0);
+  const restrictDeleteFilter = ({ value, parentData }) => (typeof value !== "string") || (Object.keys(parentData).length === 1);
+
   return <Grid2 container spacing={2} sx={{ maxHeight: maxWindowHeight }} className={fontClass.font_set}>
       <Grid2 size={12}>
           <JsonEditor
-            theme={panksomsiaTheme}
             data={ i18nData }
             setData={ setI18nData }
+            theme={panksomsiaTheme}
+            rootName="i18n"
+            showStringQuotes={false}
+            restrictDrag={true}
+            restrictEdit = { restrictEditFilter }
+            restrictAdd = { restrictAddFilter }
+            restrictDelete = { restrictDeleteFilter }
+            restrictTypeSelection={["string"]}
+            defaultValue = "???"
           />
       </Grid2>
   </Grid2>
