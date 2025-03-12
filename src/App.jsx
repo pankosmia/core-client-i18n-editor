@@ -4,8 +4,10 @@ import { JsonEditor } from 'json-edit-react'
 import { getAndSetJson } from "pithekos-lib";
 
 function App() {
-    const [i18nData, setI18nData] = useState({});
+  const [i18nData, setI18nData] = useState({});
+  const [fontClass, setFontClass] = useState([]);
   const [maxWindowHeight, setMaxWindowHeight] = useState(window.innerHeight - 64);
+
   const handleWindowResize = useCallback(event => {
     setMaxWindowHeight(window.innerHeight - 64);
   }, []);
@@ -22,6 +24,15 @@ function App() {
       []
   );
 
+  useEffect(
+    () => {
+        getAndSetJson({
+            url: "/settings/typography",
+            setter: setFontClass
+        }).then()},
+    []
+  );
+
   useEffect(() => {
     window.addEventListener('resize', handleWindowResize);
     return () => {
@@ -29,11 +40,22 @@ function App() {
     };
   }, [handleWindowResize]);
 
-  return <Grid2 container spacing={2} sx={{ maxHeight: maxWindowHeight }}>
+  const panksomsiaTheme = {
+    styles: {
+      container: {
+        backgroundColor: '',
+        fontFamily: '',
+      },
+      string: 'purple',
+    },
+  }
+
+  return <Grid2 container spacing={2} sx={{ maxHeight: maxWindowHeight }} className={fontClass.font_set}>
       <Grid2 size={12}>
           <JsonEditor
-              data={ i18nData }
-              setData={ setI18nData }
+            theme={panksomsiaTheme}
+            data={ i18nData }
+            setData={ setI18nData }
           />
       </Grid2>
   </Grid2>
