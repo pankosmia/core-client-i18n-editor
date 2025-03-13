@@ -1,9 +1,10 @@
-import {useState, useCallback, useEffect} from 'react';
+import {useState, useCallback, useEffect, useContext} from 'react';
 import {Grid2, Button} from "@mui/material";
 import {JsonEditor} from 'json-edit-react'
-import {getAndSetJson, getJson} from "pithekos-lib";
+import {getAndSetJson, postJson, debugContext} from "pithekos-lib";
 
 function App() {
+    const {debugRef} = useContext(debugContext);
     const [i18nData, setI18nData] = useState({});
     const [unsavedData, setUnsavedData] = useState(false);
     const [fontClass, setFontClass] = useState([]);
@@ -66,7 +67,12 @@ function App() {
                 disabled={!unsavedData}
                 onClick={
                     () => {
-                        getJson("/").then(r => setUnsavedData(false));
+                        postJson(
+                            "/i18n",
+                            JSON.stringify(i18nData, null, 2),
+                            debugRef.current
+                        )
+                            .then(() => setUnsavedData(false));
                     }
                 }>
                 Save
