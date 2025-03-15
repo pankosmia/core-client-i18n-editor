@@ -6,13 +6,16 @@
   },
   "i18n": {
     "title": {
-      "en": "A Localization Editor"
+      "en": "Localization Editor",
+      "fr": "Editeur de traductions de IU"
     },
     "summary": {
-      "en": "Add and edit localizations of UI strings"
+      "en": "Add and edit localizations of UI strings",
+      "fr": "Ajouter et éditer des traductions de l'IU"
     },
-    "stub_content": {
-      "en": "Content goes here"
+    "save_button": {
+      "en": "Save",
+      "fr": "Enregistrer"
     }
   }
 }

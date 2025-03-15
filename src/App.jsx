@@ -1,10 +1,11 @@
 import {useState, useCallback, useEffect, useContext} from 'react';
 import {Grid2, Button} from "@mui/material";
 import {JsonEditor} from 'json-edit-react'
-import {getAndSetJson, postJson, debugContext} from "pithekos-lib";
+import {getAndSetJson, postJson, debugContext, i18nContext, doI18n} from "pithekos-lib";
 
 function App() {
     const {debugRef} = useContext(debugContext);
+    const {i18nRef} = useContext(i18nContext);
     const [i18nData, setI18nData] = useState({});
     const [unsavedData, setUnsavedData] = useState(false);
     const [fontClass, setFontClass] = useState([]);
@@ -75,7 +76,7 @@ function App() {
                             .then(() => setUnsavedData(false));
                     }
                 }>
-                Save
+                {doI18n("pages:i18n-editor:save_button", i18nRef.current)}
             </Button>
         </Grid2>
         <Grid2 item size={12}>
