@@ -2,6 +2,7 @@ import {useState, useCallback, useEffect, useContext} from 'react';
 import {Box, Button} from "@mui/material";
 import {JsonEditor} from 'json-edit-react'
 import {getAndSetJson, postJson, debugContext, i18nContext, SpSpaPage, doI18n} from "pithekos-lib";
+import {IconAdd, IconClose, IconDelete, IconDone, IconEdit} from "./icons";
 
 function App() {
     const {debugRef} = useContext(debugContext);
@@ -63,7 +64,7 @@ function App() {
             iconCopy: '#441650',
             iconOk: '#441650',
             iconCancel: '#AA0000',
-            input: ['#000', { fontSize: '100%' }],
+            input: ['#000', {fontSize: '100%'}],
             inputHighlight: '#EECCFF',
         },
     }
@@ -80,6 +81,7 @@ function App() {
         currentId="i18n-editor"
     >
         <Box sx={{maxHeight: maxWindowHeight}} className={fontClass.font_set}>
+            {i18nRef.current["pages:i18n-editor:single_translation"] &&
             <JsonEditor
                 data={i18nData}
                 setData={setI18nData}
@@ -96,8 +98,29 @@ function App() {
                 restrictTypeSelection={() => ["string"]}
                 defaultValue="???"
                 showCollectionCount="when-closed"
-                icons={{copy: <span></span>}}
+                icons={{
+                    copy: <span></span>,
+                    add: IconAdd,
+                    close: IconClose,
+                    delete: IconDelete,
+                    done: IconDone,
+                    edit: IconEdit
+                }}
+                translations={{
+                    ITEM_SINGLE: doI18n("pages:i18n-editor:single_translation", i18nRef.current),
+                    ITEMS_MULTIPLE: doI18n("pages:i18n-editor:multiple_translations", i18nRef.current),
+                    KEY_NEW: doI18n("pages:i18n-editor:translation_new", i18nRef.current),
+                    KEY_SELECT: doI18n("pages:i18n-editor:translation_select", i18nRef.current),
+                    NO_KEY_OPTIONS: doI18n("pages:i18n-editor:no_translation_options", i18nRef.current),
+                    ERROR_KEY_EXISTS: doI18n("pages:i18n-editor:error_translation_exists", i18nRef.current),
+                    ERROR_INVALID_JSON: doI18n("pages:i18n-editor:invalid_json", i18nRef.current),
+                    ERROR_UPDATE: doI18n("pages:i18n-editor:error_update", i18nRef.current),
+                    ERROR_DELETE: doI18n("pages:i18n-editor:error_delete", i18nRef.current),
+                    ERROR_ADD: doI18n("pages:i18n-editor:error_add", i18nRef.current),
+                    SHOW_LESS: doI18n("pages:i18n-editor:show_less", i18nRef.current),
+                }}
             />
+            }
         </Box>
         <Button
             sx={{color: unsavedData ? '#FFF' : '#AAA', ml: 2, position: "absolute", top: "75px", right: "50px"}}
