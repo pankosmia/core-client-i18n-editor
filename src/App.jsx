@@ -101,10 +101,10 @@ function App() {
                 icons={{
                     copy: <span></span>,
                     add: IconAdd,
-                    close: IconClose,
+                    cancel: IconClose,
                     delete: IconDelete,
-                    done: IconDone,
-                    edit: IconEdit
+                    ok: IconDone,
+                    edit: IconEdit,
                 }}
                 translations={{
                     ITEM_SINGLE: doI18n("pages:i18n-editor:single_translation", i18nRef.current),
