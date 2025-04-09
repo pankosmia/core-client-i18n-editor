@@ -93,7 +93,7 @@ function App() {
                 restrictEdit={restrictEditFilter}
                 restrictAdd={restrictAddFilter}
                 restrictDelete={restrictDeleteFilter}
-                restrictTypeSelection={["string"]}
+                restrictTypeSelection={() => ["string"]}
                 defaultValue="???"
                 showCollectionCount="when-closed"
                 icons={{copy: <span></span>}}
