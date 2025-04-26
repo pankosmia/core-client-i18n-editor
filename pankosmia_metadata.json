@@ -26,8 +26,8 @@
       "fr": "{{count}} traductions"
     },
     "translation_new": {
-      "en": "Enter new language code(2 or 3 letters)",
-      "fr": "Nouveau code de langue (2 ou 3 lettres)"
+      "en": "New language code",
+      "fr": "Nouveau code de langue"
     },
     "translation_select": {
       "en": "Select a language code",
