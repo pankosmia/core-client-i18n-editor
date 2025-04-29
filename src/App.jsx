@@ -10,10 +10,10 @@ function App() {
     const [i18nData, setI18nData] = useState({});
     const [unsavedData, setUnsavedData] = useState(false);
     const [fontClass, setFontClass] = useState([]);
-    const [maxWindowHeight, setMaxWindowHeight] = useState(window.innerHeight - 64);
+    const [maxWindowHeight, setMaxWindowHeight] = useState(window.innerHeight - 48);
 
     const handleWindowResize = useCallback(event => {
-        setMaxWindowHeight(window.innerHeight - 64);
+        setMaxWindowHeight(window.innerHeight - 48);
     }, []);
 
     const doFetchI18n = () => {
