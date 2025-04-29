@@ -10,7 +10,7 @@
     "@mui/material": "^7.0.0",
     "eslint-config-react-app": "^7.0.1",
     "json-edit-react": "^1.25.0",
-    "pithekos-lib": "^0.8.0",
+    "pithekos-lib": "^0.9.7",
     "react": "^17.0.0 || ^18.0.0",
     "react-dom": "^17.0.0 || ^18.0.0"
   },
