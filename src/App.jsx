@@ -124,7 +124,7 @@ function App() {
         </Box>
         <Button
             sx={{color: unsavedData ? '#FFF' : '#AAA', ml: 2, position: "absolute", top: "75px", right: "50px"}}
-            color="primary"
+            color="secondary"
             size="large"
             variant="contained"
             aria-label="save"
