@@ -2,8 +2,8 @@ import {useState, useCallback, useEffect, useContext} from 'react';
 import {Box, Button} from "@mui/material";
 import {JsonEditor} from 'json-edit-react'
 import {getAndSetJson, postJson, debugContext, i18nContext, typographyContext, SpSpaPage, doI18n} from "pithekos-lib";
-import {useDetectRender} from 'font-detect-rhl';
 import {IconAdd, IconClose, IconDelete, IconDone, IconEdit} from "./icons";
+import GraphiteTest from './components/GraphiteTest';
 
 function App() {
     const {debugRef} = useContext(debugContext);
@@ -29,10 +29,9 @@ function App() {
         []
     );
 
-    const testFont = [{ name: 'Pankosmia-Awami Nastaliq for Graphite Test' }];
-    const renderType = useDetectRender({fonts:testFont});
-    const isGraphite = (renderType[0].detectedRender === 'RenderingGraphite')
-    const selectedFontClass = isGraphite ? typographyRef.current.font_set : typographyRef.current.font_set.replace(/Pankosmia-AwamiNastaliq(.*)Pankosmia-NotoNastaliqUrdu/ig, 'Pankosmia-NotoNastaliqUrdu');
+    const isGraphite = GraphiteTest()
+    /** adjSelectedFontClass is reshaped for the presence or absence of Graphite. */
+    const adjSelectedFontClass = isGraphite ? typographyRef.current.font_set : typographyRef.current.font_set.replace(/Pankosmia-AwamiNastaliq(.*)Pankosmia-NotoNastaliqUrdu/ig, 'Pankosmia-NotoNastaliqUrdu');
  
     useEffect(() => {
         window.addEventListener('resize', handleWindowResize);
@@ -76,7 +75,7 @@ function App() {
         titleKey="pages:i18n-editor:title"
         currentId="i18n-editor"
     >
-        <Box sx={{maxHeight: maxWindowHeight}} className={selectedFontClass}>
+        <Box sx={{maxHeight: maxWindowHeight}} className={adjSelectedFontClass}>
             {i18nRef.current["pages:i18n-editor:single_translation"] &&
             <JsonEditor
                 data={i18nData}
