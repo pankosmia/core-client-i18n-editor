@@ -1,15 +1,16 @@
 import {useState, useCallback, useEffect, useContext} from 'react';
 import {Box, Button} from "@mui/material";
 import {JsonEditor} from 'json-edit-react'
-import {getAndSetJson, postJson, debugContext, i18nContext, SpSpaPage, doI18n} from "pithekos-lib";
+import {getAndSetJson, postJson, debugContext, i18nContext, typographyContext, SpSpaPage, doI18n} from "pithekos-lib";
 import {IconAdd, IconClose, IconDelete, IconDone, IconEdit} from "./icons";
+import GraphiteTest from './components/GraphiteTest';
 
 function App() {
     const {debugRef} = useContext(debugContext);
     const {i18nRef} = useContext(i18nContext);
+    const { typographyRef } = useContext(typographyContext);
     const [i18nData, setI18nData] = useState({});
     const [unsavedData, setUnsavedData] = useState(false);
-    const [fontClass, setFontClass] = useState([]);
     const [maxWindowHeight, setMaxWindowHeight] = useState(window.innerHeight - 80);
 
     const handleWindowResize = useCallback(event => {
@@ -28,16 +29,10 @@ function App() {
         []
     );
 
-    useEffect(
-        () => {
-            getAndSetJson({
-                url: "/settings/typography",
-                setter: setFontClass
-            }).then()
-        },
-        []
-    );
-
+    const isGraphite = GraphiteTest()
+    /** adjSelectedFontClass reshapes selectedFontClass if Graphite is absent. */
+    const adjSelectedFontClass = isGraphite ? typographyRef.current.font_set : typographyRef.current.font_set.replace(/Pankosmia-AwamiNastaliq(.*)Pankosmia-NotoNastaliqUrdu/ig, 'Pankosmia-NotoNastaliqUrdu');
+ 
     useEffect(() => {
         window.addEventListener('resize', handleWindowResize);
         return () => {
@@ -49,7 +44,7 @@ function App() {
         styles: {
             container: {
                 backgroundColor: 'inherited',
-                fontFamily: 'inherited',
+                fontFamily: '',
                 fontSize: "xx-large",
                 color: "#441650"
             },
@@ -80,7 +75,7 @@ function App() {
         titleKey="pages:i18n-editor:title"
         currentId="i18n-editor"
     >
-        <Box sx={{maxHeight: maxWindowHeight}} className={fontClass.font_set}>
+        <Box sx={{maxHeight: maxWindowHeight}} className={adjSelectedFontClass}>
             {i18nRef.current["pages:i18n-editor:single_translation"] &&
             <JsonEditor
                 data={i18nData}

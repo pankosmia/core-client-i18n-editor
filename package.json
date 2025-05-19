@@ -9,6 +9,7 @@
     "@mui/icons-material": "^7.0.1",
     "@mui/material": "^7.0.0",
     "eslint-config-react-app": "^7.0.1",
+    "font-detect-rhl": "^1.1.7",
     "json-edit-react": "^1.25.0",
     "pithekos-lib": "^0.10.3",
     "react": "^17.0.0 || ^18.0.0",
