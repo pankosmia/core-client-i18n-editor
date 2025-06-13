@@ -1,4 +1,4 @@
-import {useState, useCallback, useEffect, useContext} from 'react';
+import {useState, useEffect, useContext} from 'react';
 import {Box, Button} from "@mui/material";
 import {JsonEditor} from 'json-edit-react'
 import {getAndSetJson, postJson, debugContext, i18nContext, typographyContext, SpSpaPage, doI18n} from "pithekos-lib";
@@ -11,11 +11,6 @@ function App() {
     const { typographyRef } = useContext(typographyContext);
     const [i18nData, setI18nData] = useState({});
     const [unsavedData, setUnsavedData] = useState(false);
-    const [maxWindowHeight, setMaxWindowHeight] = useState(window.innerHeight - 80);
-
-    const handleWindowResize = useCallback(event => {
-        setMaxWindowHeight(window.innerHeight - 80);
-    }, []);
 
     const doFetchI18n = () => {
         getAndSetJson({
@@ -32,13 +27,6 @@ function App() {
     const isGraphite = GraphiteTest()
     /** adjSelectedFontClass reshapes selectedFontClass if Graphite is absent. */
     const adjSelectedFontClass = isGraphite ? typographyRef.current.font_set : typographyRef.current.font_set.replace(/Pankosmia-AwamiNastaliq(.*)Pankosmia-NotoNastaliqUrdu/ig, 'Pankosmia-NotoNastaliqUrdu');
- 
-    useEffect(() => {
-        window.addEventListener('resize', handleWindowResize);
-        return () => {
-            window.removeEventListener('resize', handleWindowResize);
-        };
-    }, [handleWindowResize]);
 
     const panksomsiaTheme = {
         styles: {
@@ -75,7 +63,7 @@ function App() {
         titleKey="pages:i18n-editor:title"
         currentId="i18n-editor"
     >
-        <Box sx={{maxHeight: maxWindowHeight}} className={adjSelectedFontClass}>
+        <Box sx={{ mb: 2, position: 'fixed', top: '64px', bottom: 0, right: 0, overflow: 'scroll', width: '100%' }} className={adjSelectedFontClass}>
             {i18nRef.current["pages:i18n-editor:single_translation"] &&
             <JsonEditor
                 data={i18nData}
