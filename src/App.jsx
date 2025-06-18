@@ -31,6 +31,7 @@ function App() {
     const panksomsiaTheme = {
         styles: {
             container: {
+                padding: '0 16px 0 48px',
                 backgroundColor: 'inherited',
                 fontFamily: '',
                 fontSize: "xx-large",
@@ -106,7 +107,7 @@ function App() {
             }
         </Box>
         <Button
-            sx={{color: unsavedData ? '#FFF' : '#AAA', ml: 2, position: "absolute", top: "75px", right: "50px"}}
+            sx={{color: unsavedData ? '#FFF' : '#AAA', ml: 2, position: "absolute", top: "64px", right: "50px"}}
             color="secondary"
             size="large"
             variant="contained"
