@@ -1,0 +1,65 @@
+{
+  "id": "i18n-editor",
+  "require": {
+    "net": false,
+    "debug": true
+  },
+  "i18n": {
+    "title": {
+      "en": "Localization Editor",
+      "fr": "Editeur de traductions de IU"
+    },
+    "summary": {
+      "en": "Add and edit localizations of UI strings",
+      "fr": "Ajouter et éditer des traductions de l'IU"
+    },
+    "save_button": {
+      "en": "Save",
+      "fr": "Enregistrer"
+    },
+    "single_translation": {
+      "en": "{{count}} translation",
+      "fr": "{{count}} traduction"
+    },
+    "multiple_translations": {
+      "en": "{{count}} translations",
+      "fr": "{{count}} traductions"
+    },
+    "translation_new": {
+      "en": "New language code",
+      "fr": "Nouveau code de langue"
+    },
+    "translation_select": {
+      "en": "Select a language code",
+      "fr": "Choisir un code de langue"
+    },
+    "no_translation_options": {
+      "en": "Select a language code",
+      "fr": "Choisir un code de langue"
+    },
+    "error_translation_exists": {
+      "en": "A translation with that code already exists, you can edit it",
+      "fr": "Une traduction avec ce code existe déjà : vous pouvez l'éditer"
+    },
+    "error_invalid_json": {
+      "en": "The translations file is not usable (invalid JSON)",
+      "fr": "Le fichier contenant les traductions ne peut pas être utilisé (JSON invalide)"
+    },
+    "error_update": {
+      "en": "The update of this translation failed",
+      "fr": "La mise à jour de cette traduction a échouée"
+    },
+    "error_delete": {
+      "en": "The deletion of this translation failed",
+      "fr": "L'effacement de cette traduction a échoué"
+    },
+    "error_add": {
+      "en": "The deletion of this translation failed",
+      "fr": "L'effacement de cette traduction a échoué"
+    },
+    "show_less": {
+      "en": "(Show less)",
+      "fr": "(Afficher moins)"
+    }
+  }
+}
