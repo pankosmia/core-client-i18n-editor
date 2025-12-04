@@ -64,7 +64,7 @@ function App() {
         titleKey="pages:i18n-editor:title"
         currentId="i18n-editor"
     >
-        <Box sx={{ mb: 2, position: 'fixed', top: '64px', bottom: 0, right: 0, overflow: 'scroll', width: '100%' }} className={adjSelectedFontClass}>
+        <Box sx={{ mb: 2, position: 'fixed', top: '64px', bottom: 0, right: 0, overflow: 'auto', width: '100%' }} className={adjSelectedFontClass}>
             {i18nRef.current["pages:i18n-editor:single_translation"] &&
             <JsonEditor
                 data={i18nData}
