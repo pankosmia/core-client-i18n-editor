@@ -7,17 +7,17 @@
   "i18n": {
     "title": {
       "en": "Localization Editor",
-      "fr": "Editeur de traductions de IU",
+      "fr": "Éditeur de localisation",
       "id": "Editor Lokalisasi"
     },
     "summary": {
-      "en": "Add and edit localizations of UI strings",
-      "fr": "Ajouter et éditer des traductions de l'IU",
-      "id": "Tambahkan dan edit lokalisasi serangkaian UI"
+      "en": "Add and edit translations of the user interface",
+      "fr": "Ajouter et éditer des traductions de l'interface utilisateur",
+      "id": "@Tambahkan dan edit lokalisasi serangkaian UI"
     },
     "save_button": {
       "en": "Save",
-      "fr": "Enregistrer",
+      "fr": "Sauvegarder",
       "id": "Simpan"
     },
     "single_translation": {
@@ -31,9 +31,9 @@
       "id": "{{count}} terjemahan-terjemahan"
     },
     "translation_new": {
-      "en": "New language code",
-      "fr": "Nouveau code de langue",
-      "id": "Kode bahasa baru"
+      "en": "Enter language code (en)",
+      "fr": "Saisir code de langue (fr)",
+      "id": "@Kode bahasa baru"
     },
     "translation_select": {
       "en": "Select a language code",
@@ -42,12 +42,12 @@
     },
     "no_translation_options": {
       "en": "Select a language code",
-      "fr": "Choisir un code de langue",
+      "fr": "Sélectionner un code de langue",
       "id": "Pilih kode bahasa"
     },
     "error_translation_exists": {
       "en": "A translation with that code already exists, you can edit it",
-      "fr": "Une traduction avec ce code existe déjà : vous pouvez l'éditer",
+      "fr": "Une traduction avec ce code existe déjà, vous pouvez l'éditer",
       "id": "Terjemahan dengan kode itu suda ada, dapat mengeditnya"
     },
     "error_invalid_json": {
@@ -56,19 +56,19 @@
       "id": "File terjemahan tidak dapat digunakan (JSON buruk)"
     },
     "error_update": {
-      "en": "The update of this translation failed",
-      "fr": "La mise à jour de cette traduction a échouée",
-      "id": "Pembaruan terjemahan ini gagal"
+      "en": "The translation could not be updated",
+      "fr": "La traduction n'a pas pu être mise à jour",
+      "id": "@Pembaruan terjemahan ini gagal"
     },
     "error_delete": {
-      "en": "The deletion of this translation failed",
-      "fr": "L'effacement de cette traduction a échoué",
-      "id": "Penghapusan terjemahan ini gagal"
+      "en": "The translation could not be deleted",
+      "fr": "La traduction n'a pas pu être supprimée",
+      "id": "@Penghapusan terjemahan ini gagal"
     },
     "error_add": {
-      "en": "The deletion of this translation failed",
-      "fr": "L'effacement de cette traduction a échoué",
-      "id": "Penghapusan terjemahan ini gagal"
+      "en": "The translation could not be added",
+      "fr": "La traduction n'a pas pu être ajoutée",
+      "id": "@Penghapusan terjemahan ini gagal"
     },
     "show_less": {
       "en": "(Show less)",
