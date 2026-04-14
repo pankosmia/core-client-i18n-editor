@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Validate source branch
         run: |
-          BASE="${{ github.base_ref }}"
+          BASE="${{ github.event.pull_request.base.ref }}"
           HEAD="${{ github.head_ref }}"
 
           if [ "$BASE" = "qa" ] && [ "$HEAD" != "dev" ]; then
