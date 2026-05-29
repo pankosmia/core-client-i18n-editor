@@ -2,14 +2,12 @@ import { useState, useEffect, useContext } from "react";
 import { Box, Button } from "@mui/material";
 import { JsonEditor } from "json-edit-react";
 import {
-  getAndSetJson,
-  postJson,
   debugContext,
   i18nContext,
   typographyContext,
   SpSpaPage,
-  doI18n,
-} from "pithekos-lib";
+} from "pankosmia-rcl";
+import { getAndSetJson, postJson, doI18n } from "pithekos-lib";
 import { IconAdd, IconClose, IconDelete, IconDone, IconEdit } from "./icons";
 import GraphiteTest from "./components/GraphiteTest";
 
@@ -22,7 +20,7 @@ function App() {
 
   const doFetchI18n = () => {
     getAndSetJson({
-      url: "/i18n/raw",
+      url: "/api/i18n/raw",
       setter: setI18nData,
     });
   };
@@ -170,7 +168,7 @@ function App() {
         disabled={!unsavedData}
         onClick={() => {
           postJson(
-            "/i18n",
+            "/api/i18n",
             JSON.stringify(i18nData, null, 2),
             debugRef.current,
           ).then(() => setUnsavedData(false));
