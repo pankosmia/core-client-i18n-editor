@@ -2,12 +2,14 @@ import { useState, useEffect, useContext } from "react";
 import { Box, Button } from "@mui/material";
 import { JsonEditor } from "json-edit-react";
 import {
-  getAndSetJson,
-  postJson,
   debugContext,
   i18nContext,
   typographyContext,
   SpSpaPage,
+} from "pankosmia-rcl";
+import {
+  getAndSetJson,
+  postJson,
   doI18n,
 } from "pithekos-lib";
 import { IconAdd, IconClose, IconDelete, IconDone, IconEdit } from "./icons";
