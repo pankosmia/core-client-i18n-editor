@@ -7,11 +7,7 @@ import {
   typographyContext,
   SpSpaPage,
 } from "pankosmia-rcl";
-import {
-  getAndSetJson,
-  postJson,
-  doI18n,
-} from "pithekos-lib";
+import { getAndSetJson, postJson, doI18n } from "pithekos-lib";
 import { IconAdd, IconClose, IconDelete, IconDone, IconEdit } from "./icons";
 import GraphiteTest from "./components/GraphiteTest";
 
@@ -24,7 +20,7 @@ function App() {
 
   const doFetchI18n = () => {
     getAndSetJson({
-      url: "/i18n/raw",
+      url: "/api/i18n/raw",
       setter: setI18nData,
     });
   };
@@ -172,7 +168,7 @@ function App() {
         disabled={!unsavedData}
         onClick={() => {
           postJson(
-            "/i18n",
+            "/api/i18n",
             JSON.stringify(i18nData, null, 2),
             debugRef.current,
           ).then(() => setUnsavedData(false));
