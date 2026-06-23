@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createTheme } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 import { MaterialDesignContent, SnackbarProvider } from "notistack";
-import { getAndSetJson } from "pithekos-lib";
+import { getAndSetJson } from "pankosmia-lib/http";
 import App from "./App";
 import "./index.css";
 import { SpaContainer, fallbackTheme } from "pankosmia-rcl";
