@@ -7,7 +7,7 @@ import {
   typographyContext,
   SpSpaPage,
 } from "pankosmia-rcl";
-import { getAndSetJson, postJson } from "pankosmia-lib";
+import { getAndSetJson, postJson } from "pankosmia-lib/http";
 import { doI18n } from "pankosmia-lib/i18n";
 import { IconAdd, IconClose, IconDelete, IconDone, IconEdit } from "./icons";
 import GraphiteTest from "./components/GraphiteTest";

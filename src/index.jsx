@@ -65,6 +65,4 @@ function AppLayout() {
   );
 }
 
-createRoot(document.getElementById("root")).render(
-  <AppLayout />,
-);
+createRoot(document.getElementById("root")).render(<AppLayout />);
