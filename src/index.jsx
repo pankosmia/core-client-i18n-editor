@@ -11,7 +11,7 @@ import { SpaContainer, fallbackTheme } from "pankosmia-rcl";
 import { ThemeProvider } from "@emotion/react";
 
 function AppLayout() {
-  const [themeSpec, setThemeSpec] = useState({});
+  const [themeSpec, setThemeSpec] = useState(fallbackTheme);
 
   useEffect(() => {
     if (
@@ -27,7 +27,34 @@ function AppLayout() {
     }
   }, []);
 
-  const theme = createTheme(themeSpec);
+  const theme = createTheme(
+    {
+      components: {
+        MuiFab: {
+          styleOverrides: {
+            root: {
+              textTransform: "capitalize",
+            },
+          },
+        },
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              textTransform: "capitalize",
+            },
+          },
+        },
+        MuiTab: {
+          styleOverrides: {
+            root: {
+              textTransform: "capitalize",
+            },
+          },
+        },
+      },
+    },
+    themeSpec,
+  );
   const CustomSnackbarContent = styled(MaterialDesignContent)(() => ({
     "&.notistack-MuiContent-error": {
       backgroundColor: "#FDEDED",
