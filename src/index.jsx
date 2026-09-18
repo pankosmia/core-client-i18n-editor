@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { createTheme } from "@mui/material/styles";
 import { styled } from "@mui/material/styles";
 import { MaterialDesignContent, SnackbarProvider } from "notistack";
-import { getAndSetJson } from "pithekos-lib";
+import { getAndSetJson } from "pankosmia-lib/http";
 import App from "./App";
 import "./index.css";
 import { SpaContainer, fallbackTheme } from "pankosmia-rcl";
@@ -11,7 +11,7 @@ import { SpaContainer, fallbackTheme } from "pankosmia-rcl";
 import { ThemeProvider } from "@emotion/react";
 
 function AppLayout() {
-  const [themeSpec, setThemeSpec] = useState({});
+  const [themeSpec, setThemeSpec] = useState(fallbackTheme);
 
   useEffect(() => {
     if (
@@ -27,7 +27,34 @@ function AppLayout() {
     }
   }, []);
 
-  const theme = createTheme(themeSpec);
+  const theme = createTheme(
+    {
+      components: {
+        MuiFab: {
+          styleOverrides: {
+            root: {
+              textTransform: "capitalize",
+            },
+          },
+        },
+        MuiButton: {
+          styleOverrides: {
+            root: {
+              textTransform: "capitalize",
+            },
+          },
+        },
+        MuiTab: {
+          styleOverrides: {
+            root: {
+              textTransform: "capitalize",
+            },
+          },
+        },
+      },
+    },
+    themeSpec,
+  );
   const CustomSnackbarContent = styled(MaterialDesignContent)(() => ({
     "&.notistack-MuiContent-error": {
       backgroundColor: "#FDEDED",
@@ -65,6 +92,4 @@ function AppLayout() {
   );
 }
 
-createRoot(document.getElementById("root")).render(
-  <AppLayout />,
-);
+createRoot(document.getElementById("root")).render(<AppLayout />);
