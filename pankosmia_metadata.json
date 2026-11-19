@@ -2,7 +2,8 @@
   "id": "i18n-editor",
   "require": {
     "net": false,
-    "debug": true
+    "debug": false,
+    "beta":true 
   },
   "i18n": {
     "title": {
